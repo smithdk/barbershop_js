@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Admin = () => {
+const Tools = () => {
     return (
         <div>
            Admin Page
@@ -8,4 +8,4 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default Tools;
