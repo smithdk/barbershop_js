@@ -9,7 +9,12 @@ const Login = () => {
 //    const navigate = useNavigate()
     const [alertVisible, setAlertVisible] = useState(false)
 
-    const handleClick = () => {
+     const inputFocus = () => {
+        console.log("inputChange")
+        setAlertVisible(false)
+        return true
+    }
+    const buttonClick = () => {
         setAlertVisible(!alertVisible)
     }
 
@@ -25,9 +30,9 @@ const Login = () => {
            <Card style={{width: 600}} className="p-4">
                <h2 className="m-auto">Авторизация</h2>
                <Form className="d-flex flex-column">
-                   <Form.Control className="mt-3" placeholder="Введите логин"  />
-                   <Form.Control type="password" className="mt-3" placeholder="Введите пароль" />
-                   <Button className="mt-3 align-self-end" onClick={handleClick} > Войти </Button>
+                   <Form.Control className="mt-3" placeholder="Введите логин" onFocus={inputFocus} />
+                   <Form.Control type="password" className="mt-3" placeholder="Введите пароль" onFocus={inputFocus} />
+                   <Button className="mt-3 align-self-end" onClick={buttonClick} > Войти </Button>
                </Form>
            </Card>
       </Container>
