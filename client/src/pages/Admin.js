@@ -6,12 +6,13 @@ const user_surname = localStorage.getItem('user_surname')
 const user_role = localStorage.getItem('user_role')
 
 
-const Tools = () => {
+const Admin = () => {
     return (
         <div>
+            This is Admin page
             {user_family_name} {user_name} {user_surname} {user_role}
         </div>
     );
 };
 
-export default Tools;
+export default Admin;
