@@ -1,15 +1,18 @@
-import React, {useContext} from 'react';
+import React/*, {useContext}*/ from 'react';
 import {Routes, Route,Navigate} from "react-router-dom";
-import {adminRoutes, rootRoutes, userRoutes} from "../routes";
+import {adminRoutes, loginRoutes, rootRoutes, userRoutes} from "../routes";
 import {LOGIN_ROUTE} from "../utils/consts";
-import {Context} from "../index";
+//import {Context} from "../index";
 
 
 const AppRouter = () => {
-    const {user} = useContext(Context)
-    console.log(user)
+    //const {user} = useContext(Context)
+    //console.log(user)
     return (
         <Routes>
+            {loginRoutes.map(({path, component}) =>
+                <Route key={path} path={path} Component={component} exact />
+            )}
             {userRoutes.map(({path, component}) =>
                 <Route key={path} path={path} Component={component} exact />
             )}

@@ -3,7 +3,7 @@ import {Button, Container, Form} from "react-bootstrap"
 import Card from "react-bootstrap/Card";
 import {/*useLocation*/useNavigate} from "react-router-dom";
 import AlertMessage from "../components/AlertMessage"
-import {ERR_USER_NOT_FOUND, TOOLS_ROUTE} from "../utils/consts";
+import {ERR_USER_NOT_FOUND, USER_ROUTE} from "../utils/consts";
 import {login} from "../http/userAPI";
 import {observer} from "mobx-react-lite";
 
@@ -26,7 +26,7 @@ const Login = observer(() => {
             localStorage.setItem('user_name',data.name)
             localStorage.setItem('user_surname',data.surname)
             localStorage.setItem('user_role',data.role)
-            navigate(TOOLS_ROUTE)
+            navigate(USER_ROUTE)
         }  catch (e) {
             setAlertVisible(true)
         }
