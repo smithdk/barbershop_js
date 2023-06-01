@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Button, Container, Form} from "react-bootstrap"
 import Card from "react-bootstrap/Card";
-import {/*useLocation*/useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import AlertMessage from "../components/AlertMessage"
-import {ERR_USER_NOT_FOUND, USER_ROUTE} from "../utils/consts";
-import {login} from "../http/userAPI";
+import { ERR_USER_NOT_FOUND, ROOT_ROUTE} from "../utils/consts";
+//import {login} from "../http/userAPI";
 import {observer} from "mobx-react-lite";
+import {Context} from "../index";
+
 
 const Login = observer(() => {
 //    const location = useLocation()
@@ -13,7 +15,7 @@ const Login = observer(() => {
     const [alertVisible, setAlertVisible] = useState(false)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-
+    const {user} = useContext(Context)
 
     const inputFocus = () => {
         setAlertVisible(false)
@@ -21,19 +23,16 @@ const Login = observer(() => {
     }
     const buttonClick = async () => {
         try {
-            const data = await login(username, password);
-            localStorage.setItem('user_family_name',data.family_name)
-            localStorage.setItem('user_name',data.name)
-            localStorage.setItem('user_surname',data.surname)
-            localStorage.setItem('user_role',data.role)
-            navigate(USER_ROUTE)
+            //const data = await login(username, password);
+            user.setUserRole('ROOT')
+            navigate(ROOT_ROUTE)
         }  catch (e) {
             setAlertVisible(true)
         }
     }
     return (
     <>
-      <Container fluid className="fixed-top p-0" >
+       <Container fluid className="fixed-top p-0" >
          <AlertMessage show={alertVisible} message= {ERR_USER_NOT_FOUND}  type="danger"/>
        </Container>
        <Container
@@ -61,7 +60,7 @@ const Login = observer(() => {
                    <Button className="mt-3 align-self-end" onClick={buttonClick} > Войти </Button>
                </Form>
            </Card>
-      </Container>
+       </Container>
     </>
     );
 });
