@@ -1,17 +1,17 @@
 import React, {useContext, useState} from 'react';
 import {Button, Container, Form} from "react-bootstrap"
 import Card from "react-bootstrap/Card";
-import {useNavigate} from "react-router-dom";
+//import {useNavigate} from "react-router-dom";
 import AlertMessage from "../components/AlertMessage"
-import { ERR_USER_NOT_FOUND, ROOT_ROUTE} from "../utils/consts";
-//import {login} from "../http/userAPI";
+import {/*ADMIN_ROUTE,*/ ERR_USER_NOT_FOUND/*, LOGIN_ROUTE, ROOT_ROUTE, USER_ROUTE*/} from "../utils/consts";
+import {login} from "../http/userAPI";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 
 
 const Login = observer(() => {
 //    const location = useLocation()
-    const navigate = useNavigate()
+//    const navigate = useNavigate()
     const [alertVisible, setAlertVisible] = useState(false)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -23,9 +23,14 @@ const Login = observer(() => {
     }
     const buttonClick = async () => {
         try {
-            //const data = await login(username, password);
-            user.setUserRole('ROOT')
-            navigate(ROOT_ROUTE)
+            const data = await login(username, password)
+            user.setUserRole(data.role)
+/*            switch (data.role){
+                case 'ROOT': navigate(ROOT_ROUTE); break;
+                case 'ADMIN': navigate(ADMIN_ROUTE); break;
+                case 'USER': navigate(USER_ROUTE); break;
+                default: navigate(LOGIN_ROUTE); setAlertVisible(true);
+            }*/
         }  catch (e) {
             setAlertVisible(true)
         }
