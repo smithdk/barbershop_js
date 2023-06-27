@@ -3,7 +3,7 @@ import {Context} from "../index";
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {ADMIN_ROUTE, ROOT_ROUTE, USER_ROUTE} from "../utils/consts";
-
+import NavBar from "../components/NavBar"
 
 const Root = () => {
     const {user} = useContext(Context)
@@ -19,6 +19,7 @@ const Root = () => {
     }
     return (
         <div>
+            <NavBar role='ROOT'/>
             This is Root page
             <br/>
             Role: {user.userRole}

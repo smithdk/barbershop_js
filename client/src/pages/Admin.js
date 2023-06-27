@@ -3,6 +3,7 @@ import {Context} from "../index";
 import {Button} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import {ADMIN_ROUTE, ROOT_ROUTE, USER_ROUTE} from "../utils/consts";
+import NavBar from "../components/NavBar";
 
 
 const Admin = () => {
@@ -19,6 +20,7 @@ const Admin = () => {
     }
     return (
         <div>
+            <NavBar role='ADMIN'/>
             This is Admin page
             <br/>
             Role : {user.userRole}

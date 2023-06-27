@@ -25,7 +25,7 @@ const Login = observer(() => {
         try {
             const data = await login(username, password)
             //console.log(data.role)
-            console.log(data)
+            //console.log(data)
             user.setUserRole(data.role)
             switch (data.role){
                 case 'ROOT': navigate(ROOT_ROUTE); break;
