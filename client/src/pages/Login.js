@@ -44,37 +44,37 @@ const Login = observer(() => {
     }
 
     return (
-    <>
-       <Container fluid className="fixed-top p-0" >
-         <AlertMessage show={alertVisible} message= {ERR_USER_NOT_FOUND}  type="danger"/>
-       </Container>
-       <Container
-            className="d-flex justify-content-center align-items-center "
-            style={{height: window.innerHeight - 100}}
-        >
-           <Card style={{width: 600}} className="p-4" onLoad={containerFocus}>
-               <h2 className="m-auto">Авторизация</h2>
-               <Form className="d-flex flex-column" >
-                   <Form.Control
-                       className="mt-3"
-                       placeholder="Введите логин"
-                       onFocus={inputFocus}
-                       value={username}
-                       onChange={e => setUsername(e.target.value)}
-                   />
-                   <Form.Control
-                       type="password"
-                       className="mt-3"
-                       placeholder="Введите пароль"
-                       onFocus={inputFocus}
-                       value={password}
-                       onChange={e => setPassword(e.target.value)}
-                   />
-                   <Button className="mt-3 align-self-end" onClick={buttonClick} > Войти </Button>
-               </Form>
-           </Card>
-       </Container>
-    </>
+        <>
+            <Container fluid className="fixed-top p-0" >
+                <AlertMessage show={alertVisible} message= {ERR_USER_NOT_FOUND}  type="danger"/>
+            </Container>
+            <Container
+                className="d-flex justify-content-center align-items-center "
+                style={{height: window.innerHeight - 100}}
+            >
+                <Card style={{width: 600}} className="p-4" onLoad={containerFocus}>
+                    <h2 className="m-auto">Авторизация</h2>
+                    <Form className="d-flex flex-column" >
+                        <Form.Control
+                            className="mt-3"
+                            placeholder="Введите логин"
+                            onFocus={inputFocus}
+                            value={username}
+                            onChange={e => setUsername(e.target.value)}
+                        />
+                        <Form.Control
+                            type="password"
+                            className="mt-3"
+                            placeholder="Введите пароль"
+                            onFocus={inputFocus}
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                        <Button className="mt-3 align-self-end" onClick={buttonClick} > Войти </Button>
+                    </Form>
+                </Card>
+            </Container>
+        </>
     );
 });
 
