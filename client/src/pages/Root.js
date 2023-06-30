@@ -1,31 +1,33 @@
-import React, {useContext} from 'react';
-import {Context} from "../index";
-import {Button} from "react-bootstrap";
-import {useNavigate} from "react-router-dom";
-import {ADMIN_ROUTE, ROOT_ROUTE, USER_ROUTE} from "../utils/consts";
 import NavBar from "../components/NavBar"
+import RootListGroup from "../components/RootListGroup";
+import RootObjects from "../components/RootObjects";
+import RootUsers from "../components/RootUsers";
+
+import {RootContext} from "../store/RootContext";
+import {useState} from "react";
 
 const Root = () => {
-    const {user} = useContext(Context)
-    const navigate = useNavigate()
-    const buttonUserClick = async () => {
-        navigate(USER_ROUTE)
+    const [isObjectsShow, setIsObjectsShow] = useState(true)
+    const [isUsersShow, setIsUsersShow] = useState(false)
+
+    const showObjects = () =>{
+        setIsObjectsShow(true);
+        setIsUsersShow(false)
     }
-    const buttonAdmClick = async () => {
-        navigate(ADMIN_ROUTE)
-    }
-    const buttonRootClick = async () => {
-        navigate(ROOT_ROUTE)
+    const showUsers = () =>{
+        setIsObjectsShow(false);
+        setIsUsersShow(true)
     }
     return (
         <div>
-            <NavBar role='ROOT'/>
-            This is Root page
-            <br/>
-            Role: {user.userRole}
-            <br/><Button className="mt-3 align-self-end" onClick={buttonUserClick}> User </Button>
-            <br/><Button className="mt-3 align-self-end" onClick={buttonAdmClick}> Admin </Button>
-            <br/><Button className="mt-3 align-self-end" onClick={buttonRootClick}> Root </Button>
+            <RootContext.Provider value={[isObjectsShow, isUsersShow, showObjects, showUsers]}>
+                <NavBar role='ROOT'/>
+                <div className="row m-1">
+                    <RootListGroup />
+                    <RootObjects />
+                    <RootUsers />
+                </div>
+            </RootContext.Provider>
         </div>
     );
 };
