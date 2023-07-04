@@ -24,6 +24,7 @@ const Login = observer(() => {
     const buttonClick = async () => {
         try {
             const data = await login(username, password)
+            //console.log(username, password)
             //console.log(data.role)
             //console.log(data)
             user.setUserRole(data.role)

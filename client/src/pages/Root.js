@@ -19,12 +19,11 @@ const Root = () => {
         setIsUsersShow(true)
     }
 
-
     return (
-        <div>
+        <div className="m-1" >
             <RootContext.Provider value={[isObjectsShow, isUsersShow, showObjects, showUsers]}>
                 <NavBar role='ROOT'/>
-                <div className="row m-1">
+                <div className=" d-flex flex-row " style={{marginRight : 4 , marginTop: 4}}>
                     <RootListGroup />
                     <RootObjects />
                     <RootUsers />

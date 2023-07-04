@@ -13,11 +13,11 @@ const generateJwt = (id, username, barbersopID, role) => {
 class UserController {
     async create(req,res, next){
         try {
-            const {barbershopID, username, password, role, comment} = req.body
+            const {objectId, username, password, role, comment} = req.body
             const hashPassword = await bcrypt.hash(password,5)
-            const user = await User.create({barbershopID, username, password: hashPassword, role, comment})
+            const user = await User.create({objectId, username, password: hashPassword, role, comment})
             console.log('create')
-            const token  = generateJwt(user.id, user.username, user.barbersopID ,user.role)
+            const token  = generateJwt(user.id, user.username, user.objectId ,user.role)
             return res.json({token})
         } catch (e){
             next(ApiError.badRequest(e.message))

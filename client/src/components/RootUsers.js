@@ -6,7 +6,7 @@ import {useContext} from "react"
 const RootUsers = observer(() =>{
     const isUsersShow  = useContext(RootContext)[1]
     let VISIBLE ;
-    isUsersShow ? VISIBLE = "col-10 d-block": VISIBLE = "col-10 d-none";
+    isUsersShow ? VISIBLE = "col-10 d-block p-2": VISIBLE = "col-10 d-none";
     return(
        <Card className = {VISIBLE}>
             RootUsers <br/>

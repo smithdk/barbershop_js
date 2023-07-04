@@ -8,8 +8,8 @@ const RootListGroup = observer(() =>{
     const showUsers   = useContext(RootContext)[3];
 
     return (
-        <div className="col-2 p-0">
-        <ListGroup>
+        <div className="col-2" style={{marginRight: 4} }>
+        <ListGroup >
             <ListGroup.Item action variant="danger" onClick={() => {showObjects()}}>
                 Объекты
             </ListGroup.Item>
