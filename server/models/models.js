@@ -14,6 +14,7 @@ const Object = sequelize.define('object',{
     name:{type: DataTypes.STRING,comment:'Название'},
     addressCountry: {type: DataTypes.STRING,comment:'адрес Страна'},
     addressRegion:{type: DataTypes.STRING,comment:'адрес Регион'},
+    addressCity:{type: DataTypes.STRING,comment:'адрес Город'},
     addressDistrict:{type: DataTypes.STRING,comment:'адрес Район'},
     addressStreet:{type: DataTypes.STRING,comment:'адрес Улица'},
     addressBuildingNumber:{type: DataTypes.STRING,comment:'адрес Номер дома'},
