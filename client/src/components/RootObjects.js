@@ -52,7 +52,7 @@ const RootObjects = observer(() =>{
                        </thead>
                        <tbody>
                    {allObjects.data? allObjects.data.map((item)=>
-                       <tr>
+                       <tr key =  {item.id}>
                            <td>{item.id}</td>
                            <td>{item.name}</td>
                            <td>{item.addressCountry}</td>
