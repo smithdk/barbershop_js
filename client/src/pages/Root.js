@@ -9,6 +9,7 @@ import {useState} from "react";
 const Root = () => {
     const [isObjectsShow, setIsObjectsShow] = useState(true)
     const [isUsersShow, setIsUsersShow] = useState(false)
+    const [objects, setObjects] = useState({})
 
     const showObjects = () =>{
         setIsObjectsShow(true);
@@ -20,7 +21,7 @@ const Root = () => {
     }
     return (
         <div className="m-1" >
-            <RootContext.Provider value={{isObjectsShow, isUsersShow, showObjects, showUsers}}>
+            <RootContext.Provider value={{isObjectsShow, isUsersShow, showObjects, showUsers,objects, setObjects}}>
                 <NavBar role='ROOT'/>
                 <div className=" d-flex flex-row " style={{marginRight : 4 , marginTop: 4}}>
                     <RootListGroup />

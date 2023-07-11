@@ -1,23 +1,25 @@
 import {observer} from "mobx-react-lite";
 import {Button, Card,Table} from "react-bootstrap";
 import {RootContext} from "../store/RootContext";
-import React, {useContext, useEffect, useState} from "react"
+import React, {useContext, useEffect} from "react"
 import {fetchAllObjects} from '../http/objectAPI'
-//import data from "bootstrap/js/src/dom/data";
 
 const RootObjects = observer(() =>{
     const rootContext = useContext(RootContext)
-    const [allObjects, setAllObjects] = useState({info:[]})
+    /*const [allObjects, setAllObjects] = useState({info:[]})*/
 
     let VISIBLE;
     rootContext.isObjectsShow ? VISIBLE = "col-10 d-block ": VISIBLE = "col-10 d-none";
+
     useEffect(   () => {
-        fetchAllObjects().then(data => setAllObjects(data))
+        fetchAllObjects().then(data => rootContext.setObjects(data))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     return(
            <Card className = {VISIBLE} >
                <Card className="m-1">
+                   {rootContext.objects.data? <h3>{rootContext.objects.data[0].name}</h3> :null}
                    RootObjects <br/>
                    RootObjects <br/>
                    RootObjects <br/>
@@ -52,7 +54,9 @@ const RootObjects = observer(() =>{
                        </tr>
                        </thead>
                        <tbody>
-                   {allObjects.data? allObjects.data.map((item)=>
+                   {/*{allObjects.data? allObjects.data.map((item)=>*/}
+                   {rootContext.objects.data? rootContext.objects.data.map((item)=>
+
                        <tr key =  {item.id}>
                            <td>{item.id}</td>
                            <td>{item.name}</td>

@@ -5,8 +5,8 @@ const rootContext = {
 //    setIsObjectShow: () => {},
     isUsersShow: {},
 //    setIsUsersShow: () =>{},
-//    objects: {},
-//    setObjects: () => {},
+    objects: {},
+    setObjects: () => {},
     showObjects: () =>{},
     showUsers: () => {}
 }

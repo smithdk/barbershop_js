@@ -24,7 +24,7 @@ class ObjectController {
 
     }
     async getAll(req,res){
-        const objects = await Object.findAll()
+        const objects = await Object.findAll({order: ['id']})
         return res.json(objects)
     }
 
