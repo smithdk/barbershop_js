@@ -18,10 +18,9 @@ const Root = () => {
         setIsObjectsShow(false);
         setIsUsersShow(true)
     }
-
     return (
         <div className="m-1" >
-            <RootContext.Provider value={[isObjectsShow, isUsersShow, showObjects, showUsers]}>
+            <RootContext.Provider value={{isObjectsShow, isUsersShow, showObjects, showUsers}}>
                 <NavBar role='ROOT'/>
                 <div className=" d-flex flex-row " style={{marginRight : 4 , marginTop: 4}}>
                     <RootListGroup />

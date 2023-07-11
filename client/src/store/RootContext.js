@@ -1,2 +1,14 @@
 import React from "react";
-export const RootContext = React.createContext(null);
+
+const rootContext = {
+    isObjectsShow: {},
+//    setIsObjectShow: () => {},
+    isUsersShow: {},
+//    setIsUsersShow: () =>{},
+//    objects: {},
+//    setObjects: () => {},
+    showObjects: () =>{},
+    showUsers: () => {}
+}
+
+export const RootContext = React.createContext(rootContext);

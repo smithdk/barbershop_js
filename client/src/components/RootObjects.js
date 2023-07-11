@@ -6,10 +6,11 @@ import {fetchAllObjects} from '../http/objectAPI'
 //import data from "bootstrap/js/src/dom/data";
 
 const RootObjects = observer(() =>{
-    const isObjectsShow  = useContext(RootContext)[0]
+    const rootContext = useContext(RootContext)
     const [allObjects, setAllObjects] = useState({info:[]})
+
     let VISIBLE;
-    isObjectsShow ? VISIBLE = "col-10 d-block ": VISIBLE = "col-10 d-none";
+    rootContext.isObjectsShow ? VISIBLE = "col-10 d-block ": VISIBLE = "col-10 d-none";
     useEffect(   () => {
         fetchAllObjects().then(data => setAllObjects(data))
     },[])

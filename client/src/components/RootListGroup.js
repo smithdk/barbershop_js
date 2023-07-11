@@ -4,16 +4,15 @@ import {useContext} from "react"
 import {RootContext} from "../store/RootContext";
 
 const RootListGroup = observer(() =>{
-    const showObjects = useContext(RootContext)[2];
-    const showUsers   = useContext(RootContext)[3];
+    const rootContext = useContext(RootContext);
 
     return (
         <div className="col-2" style={{marginRight: 4} }>
         <ListGroup >
-            <ListGroup.Item action variant="danger" onClick={() => {showObjects()}}>
+            <ListGroup.Item action variant="danger" onClick={() => {rootContext.showObjects()}}>
                 Объекты
             </ListGroup.Item>
-            <ListGroup.Item action variant="danger" onClick={() => {showUsers()}}>
+            <ListGroup.Item action variant="danger" onClick={() => {rootContext.showUsers()}}>
                 Пользователи
             </ListGroup.Item>
         </ListGroup>
