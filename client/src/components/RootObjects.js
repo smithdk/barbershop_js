@@ -1,5 +1,5 @@
 import {observer} from "mobx-react-lite";
-import {Button, Card,Table} from "react-bootstrap";
+import {Button, Card, Col, Image,Table} from "react-bootstrap";
 import {RootContext} from "../store/RootContext";
 import React, {useContext, useEffect} from "react"
 import {fetchAllObjects} from '../http/objectAPI'
@@ -18,16 +18,18 @@ const RootObjects = observer(() =>{
 
     return(
            <Card className = {VISIBLE} >
-               <Card className="m-1">
-                   {rootContext.objects.data? <h3>{rootContext.objects.data[0].name}</h3> :null}
-                   RootObjects <br/>
-                   RootObjects <br/>
-                   RootObjects <br/>
-                   RootObjects <br/>
-                   RootObjects <br/>
-                   RootObjects <br/>
-                   RootObjects <br/>
-                   RootObjects <br/>
+               <Card className="m-1 flex-row">
+                   <Image className="flex-column" style={{width: 150, height: 200}} src="noimage.jpeg" rounded />
+                   <Col className="flex-column" >
+                       <div className="text-center">
+                           <h2 className="fw-bold "> Объекты</h2>
+                       </div>
+                       <div className="text-center">
+                            222
+                       </div>
+                   </Col>
+
+                 {/*  {rootContext.objects.data? <h3>{rootContext.objects.data[0].name}</h3> :null}*/}
                </Card>
                <Card  className="m-1" >
                   <div className="container row">
